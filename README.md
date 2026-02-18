@@ -4,7 +4,7 @@
 **Environment:** Oracle VirtualBox | Security Onion | Kali Linux | Metasploitable
 
 ## 📖 Project Overview
-This repository documents a simulated Security Operations Center (SOC) environment designed to test Network Intrusion Detection Systems (NIDS) against real-world attack vectors. The goal was to execute "Kill Chain" scenarios—ranging from reconnaissance to data exfiltration—and validate detection signatures using **Suricata** and **Zeek**.
+This repository documents a simulated Security Operations Center (SOC) environment designed to test Network Intrusion Detection Systems (NIDS) against real-world attack vectors. The goal was to execute "Kill Chain" scenarios that range from reconnaissance to data exfiltration and validate detection signatures using **Suricata** and **Zeek**.
 
 ### 🏗️ Lab Architecture
 | Role | OS | IP Address | Function |
