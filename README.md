@@ -1,21 +1,21 @@
 # 🛡️ Home Lab SOC Portfolio  
 **Analyst:** Leo Martinez III  
-**Contact:** mtz3.leo@gmail.com  or leo.martinez@students.tamuk.edu  
+**Contact:** mtz3.leo@gmail.com or leo.martinez@students.tamuk.edu  
 **Environment:** Oracle VirtualBox | Security Onion | Kali Linux | Metasploitable
 
 ## 📖 Project Overview
-This repository documents a simulated Security Operations Center (SOC) environment designed to test Network Intrusion Detection Systems (NIDS) against real-world attack vectors. The goal was to execute "Kill Chain" scenarios that range from reconnaissance to data exfiltration and validate detection signatures using **Suricata** and **Zeek**.
+This repository documents a simulated Security Operations Center (SOC) environment designed to test Network Intrusion Detection Systems (NIDS) against real-world attack vectors. The goal was to execute "Kill Chain" scenarios that range from reconnaissance to data exfiltration, validate detection signatures using **Suricata** and **Zeek**, and implement automated containment via a custom Python-based SOAR pipeline.
 
 ### 🏗️ Lab Architecture
 | Role | OS | IP Address | Function |
 |:---:|:---:|:---:|:---|
 | **Analyst** | Security Onion | `192.168.1.50` | NIDS sensor, Kibana dashboard, Elasticsearch backend. |
 | **Attacker** | Kali Linux | `10.10.10.6` | Red Team operations, penetration testing tools. |
-| **Victim** | Metasploitable | `10.10.10.5` | Vulnerable target running legacy services (DVWA, FTP, SSH). |
+| **Victim** | Metasploitable | `10.10.10.5` / `192.168.1.54` | Vulnerable target running legacy services (DVWA, FTP, SSH). Includes a secondary management interface for automated mitigation. |
 
 ---
 
-## 📂 Laboratory Reports
+## 📂 Laboratory Reports & Scripts
 
 ### 1️⃣ Network Reconnaissance & Enumeration
 **Objective:** Map the attack surface of the victim machine to identify open ports, running services, and OS versions.
@@ -40,13 +40,22 @@ This repository documents a simulated Security Operations Center (SOC) environme
 * **Detection:** Confirmed **Data Exfiltration** via PCAP analysis, capturing the `/etc/passwd` file content in the HTTP response body.
 * **📄 View Report:** [Web Attack Report](./reports/web-app-command-injection-attack_demo.pdf)
 
+### 4️⃣ Custom SOAR Implementation & Automated Containment
+[cite_start]**Objective:** Design a Security Orchestration, Automation, and Response (SOAR) pipeline to automatically parse SIEM alerts and neutralize active threats[cite: 553].
+* **Tools Used:** Python (`requests`, `paramiko`), Elasticsearch API, `iptables`, SSH
+* [cite_start]**Methodology:** Developed a Python script to poll Security Onion's API for Suricata alerts [cite: 863][cite_start], extract malicious IP addresses [cite: 872][cite_start], and programmatically deploy firewall drop rules on the victim machine via an encrypted SSH tunnel[cite: 873, 874].
+* [cite_start]**Detection to Response:** Drastically reduced Mean Time to Respond (MTTR) by fully automating the containment of an active attacker IP[cite: 711].
+* **📄 View Report:** [SOAR Implementation Report](./reports/SOAR-Implementation_demo.pdf)
+* **💻 View Source Code:** [Automated SOAR Script](./scripts/soar_automated_response.py)
+
 ---
 
 ## 🛠️ Skills & Technologies Demonstrated
+* **SOAR & Automation:** Utilizing Python, REST APIs, and Paramiko for automated firewall (`iptables`) mitigation.
 * **Traffic Analysis:** Correlating raw packet captures (PCAP) with IDS alerts.
 * **Incident Response:** Identifying Indicators of Compromise (IoCs) across the kill chain.
 * **Network Security:** Configuring Promiscuous Mode, internal virtual networks, and static addressing.
-* **Tools:** Nmap, Hydra, Wireshark/Tcpdump, Suricata, Kibana.
+* **Tools:** Python, Nmap, Hydra, Wireshark/Tcpdump, Suricata, Kibana, Elasticsearch.
 
 ---
 
