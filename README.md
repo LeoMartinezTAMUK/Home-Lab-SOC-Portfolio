@@ -41,10 +41,10 @@ This repository documents a simulated Security Operations Center (SOC) environme
 * **📄 View Report:** [Web Attack Report](./reports/web-app-command-injection-attack_demo.pdf)
 
 ### 4️⃣ Custom SOAR Implementation & Automated Containment
-[cite_start]**Objective:** Design a Security Orchestration, Automation, and Response (SOAR) pipeline to automatically parse SIEM alerts and neutralize active threats[cite: 553].
+**Objective:** Design a Security Orchestration, Automation, and Response (SOAR) pipeline to automatically parse SIEM alerts and neutralize active threats.
 * **Tools Used:** Python (`requests`, `paramiko`), Elasticsearch API, `iptables`, SSH
-* [cite_start]**Methodology:** Developed a Python script to poll Security Onion's API for Suricata alerts [cite: 863][cite_start], extract malicious IP addresses [cite: 872][cite_start], and programmatically deploy firewall drop rules on the victim machine via an encrypted SSH tunnel[cite: 873, 874].
-* [cite_start]**Detection to Response:** Drastically reduced Mean Time to Respond (MTTR) by fully automating the containment of an active attacker IP[cite: 711].
+* **Methodology:** Developed a Python script to poll Security Onion's API for Suricata alerts, extract malicious IP addresses, and programmatically deploy firewall drop rules on the victim machine via an encrypted SSH tunnel.
+* **Detection to Response:** Drastically reduced Mean Time to Respond (MTTR) by fully automating the containment of an active attacker IP.
 * **📄 View Report:** [SOAR Implementation Report](./reports/SOAR-Implementation_demo.pdf)
 * **💻 View Source Code:** [Automated SOAR Script](./scripts/soar_automated_response.py)
 
