@@ -1,6 +1,6 @@
 # 🛡️ Home Lab SOC Portfolio  
 **Analyst:** Leo Martinez III  
-**Contact:** mtz3.leo@gmail.com
+**Contact:** mtz3.leo@gmail.com  
 **Environment:** Oracle VirtualBox | Security Onion | Kali Linux | Metasploitable
 
 ## 📖 Project Overview
